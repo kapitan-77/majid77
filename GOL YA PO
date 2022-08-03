@@ -1,0 +1,81 @@
+from tkinter import *
+import tkinter.messagebox
+import random
+
+# ====================== seting ===================================================================================
+majid = Tk()
+majid.title("majid")
+majid.geometry("470x400")
+majid.resizable(width=False, height=False)
+saeed = "#c034eb"
+majid.configure(bg=saeed)
+# ================================================frames===========================================================
+majid_top = Frame(majid, width=400, height=50, bg=saeed)
+majid_top.pack(side="top")
+majid_HH = Frame(majid, width=400, height=50, bg=saeed)
+majid_HH.pack(side="top")
+majid_MM = Frame(majid, width=400, height=50, bg=saeed)
+majid_MM.pack(side="top")
+majid_KK = Frame(majid, width=400, height=50, bg=saeed)
+majid_KK.pack(side="top")
+majid_OO = Frame(majid, width=400, height=50, bg=saeed)
+majid_OO.pack(side="top")
+majid_ran = Frame(majid, width=400, height=50, bg=saeed)
+majid_ran.pack(side="top")
+majid_jam = Frame(majid, width=400, height=50, bg=saeed)
+majid_jam.pack(side="top")
+majid_sad = Frame(majid, width=400, height=50, bg=saeed)
+majid_sad.pack(side="top")
+# ============================================Button==============================================================
+btn_1 = Button(majid_top, text="daste rast", width=30, highlightbackground=saeed, command=lambda: rast())
+btn_1.pack(side=LEFT, padx=5, pady=5)
+btn_2 = Button(majid_HH, text="daste chap", width=30, highlightbackground=saeed, command=lambda: chap())
+btn_2.pack(side=LEFT, padx=5, pady=5)
+btn_3 = Button(majid_KK, text="", width=30, highlightbackground=saeed, )
+btn_3.pack(side=LEFT, padx=5, pady=5)
+btn_4 = Button(majid_ran, text="", width=30, highlightbackground=saeed, )
+btn_4.pack(side=LEFT, padx=5, pady=5)
+btn_5 = Button(majid_sad, text="clear", width=5, highlightbackground=saeed, command=lambda: clear())
+btn_5.pack(side=LEFT, padx=5, pady=5)
+btn_6 = Button(majid_sad, text="creator", width=5, highlightbackground=saeed, command=lambda: creator())
+btn_6.pack(side=LEFT, padx=5, pady=5)
+
+
+# ==============================================Function===========================================================
+def creator():
+    tkinter.messagebox.showinfo("CREATOR", "this is top majid", )
+
+
+def rast():
+    z = random.randint(0, 1)
+    if z == 0:
+        btn_3["text"] = "gol"
+        btn_4["text"] = "you win"
+    elif z == 1:
+        btn_3["text"] = "pooch"
+        btn_4["text"] = "you lose!"
+
+
+def chap():
+    z = random.randint(0, 1)
+    if z == 0:
+        btn_3["text"] = "gol"
+        btn_4["text"] = "you win"
+    elif z == 1:
+        btn_3["text"] = "pooch"
+        btn_4["text"] = "you lose!"
+
+
+def clear():
+    btn_3["text"] = ""
+    btn_4["text"] = ""
+
+
+# =================================================Labales=========================================================
+m = Label(majid_MM, text="computer", bg=saeed)
+m.pack(side=LEFT, padx=5, pady=5)
+c = Label(majid_OO, text="result:", bg=saeed)
+c.pack(side=LEFT, padx=5, pady=5)
+# ============================================run==================================================================
+
+majid.mainloop()
